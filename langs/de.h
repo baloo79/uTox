@@ -210,9 +210,6 @@ msgstr("Fortgeschritten")
 msgid(NOTIFICATIONS_BUTTON)
 msgstr("Benachrichtigungen")
 
-msgid(AUTO_UPDATE)
-msgstr("uTox automatisch aktualisieren")
-
 msgid(PROFILE_SETTINGS)
 msgstr("Profileinstellungen")
 
@@ -484,6 +481,9 @@ msgstr("Zeigen")
 
 msgid(HIDE)
 msgstr("Verstecken")
+
+msgid(EXIT)
+msgstr("Beenden")
 
 msgid(VIDEO_IN_NONE)
 msgstr("keines")

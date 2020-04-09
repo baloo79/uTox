@@ -175,7 +175,7 @@ msgid(GROUP_CREATE_VOICE)
 msgstr("Skapa en gruppchatt med ljud")
 
 msgid(CREATEGROUPCHAT)
-msgstr("Skapa gruppchat")
+msgstr("Skapa gruppchatt")
 
 msgid(REMOVE_GROUP)
 msgstr("Ta bort grupp")
@@ -188,10 +188,10 @@ msgstr("Lämna grupp")
  *** Group Settings                                                         ***
  ******************************************************************************/
 msgid(GROUPCHAT_SETTINGS)
-msgstr("Gruppchatt-inställningar")
+msgstr("Inställningar för Gruppchatt")
 
 msgid(GROUP_NOTIFICATIONS)
-msgstr("Grupp-notifieringar")
+msgstr("Gruppnotifieringar")
 
 msgid(GROUP_NOTIFICATIONS_ON)
 msgstr("På")
@@ -225,9 +225,6 @@ msgstr("Avancerat")
 
 msgid(NOTIFICATIONS_BUTTON)
 msgstr("Notifieringar")
-
-msgid(AUTO_UPDATE)
-msgstr("Uppdatera µTox automatiskt")
 
 msgid(PROFILE_SETTINGS)
 msgstr("Profilinställningar")
@@ -277,7 +274,7 @@ msgid(FILTER_ALL)
 msgstr("Alla")
 
 msgid(FILTER_CONTACT_TOGGLE)
-msgstr("Växla filtrering av offline kontakter.")
+msgstr("Växla filtrering av frånkopplade kontakter.")
 
 msgid(ADD)
 msgstr("Lägg till")
@@ -349,7 +346,7 @@ msgid(USER_INTERFACE)
 msgstr("Gränssnitt")
 
 msgid(UTOX_SETTINGS)
-msgstr("uTox-inställningar")
+msgstr("Inställningar för uTox")
 
 msgid(NETWORK_SETTINGS)
 msgstr("Nätverksinställningar")
@@ -574,7 +571,7 @@ msgid(DPI_HUGE)
 msgstr("Enorm (250%)")
 
 msgid(PROXY_DISABLED)
-msgstr("Deaktiverad")
+msgstr("Inaktiverad")
 
 msgid(PROXY_FALLBACK)
 msgstr("Fallback")

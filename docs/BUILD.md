@@ -1,6 +1,6 @@
 # Build
 
-Following are barebone compilation instructions. They probably wont work but #utox on freenode can
+Following are barebone compilation instructions. They probably won't work but #utox on freenode can
 probably help you out.
 
 If you're looking for it to "just work" you're going to want [these instructions](INSTALL.md).
@@ -39,13 +39,13 @@ make install
 > In that case you want to set the env variable  `ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer`  for the address sanitizer (ASAN) to show nicer stack traces.
 > See <http://clang.llvm.org/docs/AddressSanitizer.html#symbolizing-the-reports> for more details.
 
-or if you built toxcore statically:
+or if you want to link toxcore statically:
 ```sh
 git clone --recursive git://github.com/uTox/uTox.git
 cd uTox/
 mkdir build
 cd build
-cmake -DTOXCORE_STATIC=ON ..
+cmake -DSTATIC_TOXCORE=ON ..
 make
 make install
 ```
@@ -53,6 +53,15 @@ make install
 For the build to pass you need to install the following from sources: [filteraudio](https://github.com/irungentoo/filter_audio) [libtoxcore](https://github.com/TokTok/c-toxcore)
 
 For base emoji ids support you need: [base_emoji](https://github.com/irungentoo/base_emoji)
+
+#### musl + clang
+
+If you use clang on a musl system, you may need to disable link-time optimizations, in case you get linking errors like the following:
+```
+/bin/x86_64-unknown-linux-musl-ld: src/av/libutoxAV.a: error adding symbols: archive has no index; run ranlib to add one
+clang-9: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+In that case, you need to pass `-DENABLE_LTO=OFF` to cmake.
 
 ### Ubuntu
 
@@ -221,13 +230,13 @@ And go back to terminal (make sure you're still in `build` folder):
 
 - For 32 bit:
     ```bash
-    cmake -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-win32.cmake" -DTOXCORE_STATIC=ON ..
+    cmake -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-win32.cmake" -DSTATIC_TOXCORE=ON ..
     make
     ```
 
 - For 64 bit:
     ```bash
-    cmake -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-win64.cmake" -DTOXCORE_STATIC=ON ..
+    cmake -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-win64.cmake" -DSTATIC_TOXCORE=ON ..
     make
     ```
 
@@ -267,4 +276,4 @@ java -classpath $SDK_PATH/tools/lib/sdklib.jar com.android.sdklib.build.ApkBuild
 jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore ./tmp/debug.keystore -storepass $PASSWORD ./tmp/tmp2.apk $ALIAS
 ```
 
-Come to think of it, this section is woefully out of date. The android build script in tools/ is likely to be more helpful at this point. Or come to [#utox on Freenode](https://webchat.freenode.net/?channels=#utox) and ask for grayhatter. If you're interested in working on android. He'll get you a build enviroment set up!
+Come to think of it, this section is woefully out of date. The android build script in tools/ is likely to be more helpful at this point. Or come to [#utox on Freenode](https://webchat.freenode.net/?channels=#utox) and ask for grayhatter. If you're interested in working on android. He'll get you a build environment set up!

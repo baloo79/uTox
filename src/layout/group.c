@@ -57,9 +57,12 @@ static void draw_group(int x, int UNUSED(y), int UNUSED(w), int UNUSED(height)) 
 
         if (peer && peer->name_length) {
             char buf[TOX_MAX_NAME_LENGTH];
-            int  text_length = snprintf((char *)buf, TOX_MAX_NAME_LENGTH, "%.*s, ", (int)peer->name_length, peer->name);
 
-            unsigned w = textwidth(buf, text_length);
+            snprintf((char *)buf, sizeof(buf), "%.*s, ",
+                     (int)peer->name_length, peer->name);
+            int buf_len = strnlen(buf, sizeof(buf) - 1);
+
+            unsigned w = textwidth(buf, buf_len);
             if (peer->name_color) {
                 setcolor(peer->name_color);
             } else {
@@ -76,7 +79,7 @@ static void draw_group(int x, int UNUSED(y), int UNUSED(w), int UNUSED(height)) 
                 }
             }
 
-            drawtext(k, SCALE(pos_y * 2), buf, text_length);
+            drawtext(k, SCALE(pos_y * 2), buf, buf_len);
 
             k += w;
         }
@@ -205,6 +208,13 @@ static void button_group_audio_update(BUTTON *b) {
 }
 
 BUTTON button_group_audio = {
+    .panel = {
+        .type   = PANEL_BUTTON,
+        .x      = -62,
+        .y      =  10,
+        .width  = _BM_LBUTTON_WIDTH,
+        .height = _BM_LBUTTON_HEIGHT,
+    },
     .bm_fill      = BM_LBUTTON,
     .bm_icon      = BM_CALL,
     .icon_w       = _BM_LBICON_WIDTH,
@@ -572,6 +582,13 @@ static void button_chat_send_group_update(BUTTON *b) {
 }
 
 BUTTON button_chat_send_group = {
+    .panel = {
+        .type   = PANEL_BUTTON,
+        .x      =  -6 - _BM_CHAT_SEND_WIDTH,
+        .y      = -46,
+        .width  = _BM_CHAT_SEND_WIDTH,
+        .height = _BM_CHAT_SEND_HEIGHT,
+    },
     .bm_fill        = BM_CHAT_SEND,
     .bm_icon        = BM_CHAT_SEND_OVERLAY,
     .icon_w         = _BM_CHAT_SEND_OVERLAY_WIDTH,
